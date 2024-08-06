@@ -1,0 +1,41 @@
+{
+  "name": "node-koa-temp",
+  "version": "1.0.0",
+  "author": "edon",
+  "description": "node+koa+ts+mongo模板项目",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env MODE=stage nodemon --config nodemon.json",
+    "build": "rimraf dist && tsc && tsc-alias",
+    "start:build": "cross-env MODE=prod node dist/index.js"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "mongodb",
+    "koa"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "koa": "^2.15.2",
+    "koa-bodyparser": "^4.4.1",
+    "koa-router": "^12.0.1",
+    "mongoose": "^8.5.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa-router": "^7.4.8",
+    "@types/koa__cors": "^5.0.0",
+    "@types/node": "^20.11.30",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.3"
+  }
+}

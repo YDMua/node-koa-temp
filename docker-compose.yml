@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  app:
+    image: node:20.16.0
+    container_name: node-koa-server
+    working_dir: /app/server
+    volumes:
+      - ./:/app/server
+      - /app/server/node_modules
+    environment:
+      - HOST_MONGO_URL=mongodb://mongo:27017
+      - PORT=8000
+    depends_on:
+      - mongo
+    ports:
+      - "8001:8000"
+    command: sh -c "npm install -g pnpm@latest --registry=https://registry.npmmirror.com && pnpm install && npm run build && npm run start:build"
+
+  mongo:
+    image: mongo:latest
+    container_name: node-koa-mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
